@@ -1,6 +1,11 @@
 const p = new Promise((resolve, reject) => {
-    resolve(1)
-    reject(new Error('error message'))
+    setTimeout(() => {
+        resolve(1)
+        reject(new Error('error message'))
+        
+    }, 2000);
 })
 
-p.then((result) => console.log('Result', result))
+p
+    .then((result) => console.log('Result', result))
+    .catch((err) => console.log(err.message))
